@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Futras - Fitness & Nutrition</title>
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600&display=swap"
+    rel="stylesheet">
+</head>
+
+<body id="top">
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="#" class="logo">
+        FitApp<span class="span">.</span>
+      </a>
+
+      <nav class="navbar" data-navbar>
+
+        <button class="nav-toggle-btn" aria-label="close menu" data-nav-toggler>
+          <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+        </button>
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <a href="#home" class="navbar-link" data-nav-link>Home</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#blog" class="navbar-link" data-nav-link>Blog</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#footer" class="navbar-link" data-nav-link>Contact</a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+      
+
+      <button class="nav-toggle-btn" aria-label="open manu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+      </button>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+  </header>
+
+
+
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="section hero" aria-label="hero" id="home" data-section
+        style="background-image: url('hero-banner.jpg')">
+        <div class="container">
+
+          <p class="hero-subtitle">Fitness & Nutrition </p>
+
+          <h1 class="h1 hero-title">This is a Fitness Checking Website.</h1>
+
+          <p class="hero-text">
+            Check your Health vital and find latest blog on nutrition.
+          </p>
+
+          <a href="#about" class="btn btn-secondary">Check Vitals</a>
+
+          <div class="social-wrapper">
+
+            <p class="social-title">Connect with us:</p>
+
+            <ul class="social-list">
+
+              
+
+              
+              <li>
+                <a href="https://www.linkedin.com/in/ameya-sharma-1a51b021b" class="social-link">
+                  <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+      </section>
+
+
+
+
+
+
+
+
+      <!-- 
+        - #ABOUT
+      -->
+
+      <section class="section about" aria-label="about" id="about" data-section>
+        <div class="container">
+
+          
+            
+
+          </div>
+
+          <div class="about-content">
+
+            <p class="section-subtitle">Check your Vitals</p>
+
+            <h2 class="h3 section-title">We have created an interactive health vitals checker for you.</h3>
+
+            <p class="section-text">
+               You need the latest radings of your health vitals for checking your health status. Make sure the readings that you enter are latest and true.
+            </p>
+<br>
+            
+    <style>
+        /* Style for input boxes */
+        input {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        
+        /* Style for the "Check Metrics" button */
+        button {
+            padding: 10px 20px;
+            background-color: var(--blue-green-color-wheel);
+            color: var(--orange-web);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+
+    <h1>Health Metrics Checker</h1>
+    
+    <label for="bloodPressure">Enter Blood Pressure (mmHg): </label>
+    <input type="number" id="bloodPressureSystolic" placeholder="Systolic"><br>
+    <input type="number" id="bloodPressureDiastolic" placeholder="Diastolic"><br><br>
+    
+    <label for="heartRate">Enter Heart Rate (bpm): </label>
+    <input type="number" id="heartRate"><br><br>
+    
+    <label for="oxygenLevels">Enter Oxygen Levels (%): </label>
+    <input type="number" id="oxygenLevels"><br><br>
+    
+    <button onclick="checkMetrics()">Check Metrics</button>
+    
+    <div id="result"></div>
+
+    <script>
+        function checkMetrics() {
+            var systolic = parseInt(document.getElementById("bloodPressureSystolic").value);
+            var diastolic = parseInt(document.getElementById("bloodPressureDiastolic").value);
+            var heartRate = parseInt(document.getElementById("heartRate").value);
+            var oxygenLevels = parseInt(document.getElementById("oxygenLevels").value);
+            
+            var analysis = "<strong>Health Metrics Analysis:</strong><br><br>";
+            
+            if (isNaN(systolic) || isNaN(diastolic) || isNaN(heartRate) || isNaN(oxygenLevels)) {
+                analysis += "Please enter valid numerical values for all metrics.";
+            } else {
+                analysis += "<strong>Blood Pressure:</strong><br>";
+                if (systolic < 90 || systolic > 140 || diastolic < 60 || diastolic > 90) {
+                    analysis += "Your blood pressure is not within the optimal range (90/60 mmHg - 140/90 mmHg). It's recommended to consult a healthcare professional for further evaluation.";
+                } else {
+                    analysis += "Your blood pressure is within the optimal range (90/60 mmHg - 140/90 mmHg).";
+                }
+                analysis += "<br><br>";
+                
+                analysis += "<strong>Heart Rate:</strong><br>";
+                if (heartRate < 60 || heartRate > 100) {
+                    analysis += "Your heart rate is not within the normal range (60 - 100 bpm). It's advisable to monitor your heart rate and consider consulting a medical expert.";
+                } else {
+                    analysis += "Your heart rate is within the normal range (60 - 100 bpm).";
+                }
+                analysis += "<br><br>";
+                
+                analysis += "<strong>Oxygen Levels:</strong><br>";
+                if (oxygenLevels < 90) {
+                    analysis += "Your oxygen levels are below the recommended threshold of 90%. Please seek medical attention immediately, as low oxygen levels could indicate a serious health concern.";
+                } else {
+                    analysis += "Your oxygen levels are within the acceptable range.";
+                }
+            }
+            
+            document.getElementById("result").innerHTML = analysis;
+        }
+    </script>
+
+
+
+          </div>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #BLOG
+      -->
+
+      <section class="section blog" aria-label="blog" id="blog" data-section>
+        <div class="container">
+
+          <div class="title-wrapper">
+            <p class="section-subtitle">Our Blog Post</p>
+
+            <h2 class="h2 section-title">Latest Articles of Nutrition</h2>
+          </div>
+
+          <ul class="grid-list">
+
+            <li>
+              <div class="blog-card">
+
+                <div class="wrapper">
+
+                  <time class="publish-date" datetime="2023-08-05">
+                    <span class="span">05</span> Aug
+                  </time>
+
+                  <div>
+
+                    <div class="card-author">
+                      <a href="https://www.purdueglobal.edu/blog/student-life/valuable-health-wellness-blogs/" class="card-link">
+                        By: <span class="span">Prudueglobal</span>
+                      </a>
+                    </div>
+
+                    <ul class="card-meta-list">
+                      <li class="card-meta-item">
+                        <p class="item-text">870 Likes</p>
+                      </li>
+
+                      <li class="card-meta-item">
+                        <p class="item-text">58 Share</p>
+                      </li>
+                    </ul>
+
+                  </div>
+
+                </div>
+
+                <h3 class="h3">
+                  <a href="https://www.purdueglobal.edu/blog/student-life/valuable-health-wellness-blogs/" class="card-title">Resource Center: 25 Valuable Health and Wellness Blogs to Follow in 2023</a>
+                </h3>
+
+                <p class="card-text">
+                 When you lack good health, everything else in life suffers. It’s harder to concentrate and study. Illness can cause you to fall behind in coursework. Stress can make you feel overwhelmed. If you want to do well in all areas of your life, you must make your health a priority.  
+                </p>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="blog-card">
+
+                <div class="wrapper">
+
+                  <time class="publish-date" datetime="2023-08-05">
+                    <span class="span">05</span> Aug
+                  </time>
+
+                  <div>
+
+                    <div class="card-author">
+                      <a href="https://www.spectrumnutrition.ie/blog" class="card-link">
+                        By: <span class="span">Spectrumnutrition</span>
+                      </a>
+                    </div>
+
+                    <ul class="card-meta-list">
+                      <li class="card-meta-item">
+                        <p class="item-text">907 Likes</p>
+                      </li>
+
+                      <li class="card-meta-item">
+                        <p class="item-text">58 Share</p>
+                      </li>
+                    </ul>
+
+                  </div>
+
+                </div>
+
+                <h3 class="h3">
+                  <a href="https://www.spectrumnutrition.ie/blog" class="card-title">Healthy Eating On A Budget</a>
+                </h3>
+
+                <p class="card-text">
+                  The current cost of living crisis is affecting us all but with some careful planning, eating healthy and tasty food on a tight budget is still possible.
+                </p>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="blog-card">
+
+                <div class="wrapper">
+
+                  <time class="publish-date" datetime="2023-08-05">
+                    <span class="span">05</span> Aug
+                  </time>
+
+                  <div>
+
+                    <div class="card-author">
+                      <a href="https://www.nutritionbylovneet.com/blog/intermittent-fasting-for-weight-loss-all-you-need-to-know" class="card-link">
+                        By: <span class="span">nutritionbylovneet</span>
+                      </a>
+                    </div>
+
+                    <ul class="card-meta-list">
+                      <li class="card-meta-item">
+                        <p class="item-text">117 Likes</p>
+                      </li>
+
+                      <li class="card-meta-item">
+                        <p class="item-text">58 Share</p>
+                      </li>
+                    </ul>
+
+                  </div>
+
+                </div>
+
+                <h3 class="h3">
+                  <a href="https://www.nutritionbylovneet.com/blog/intermittent-fasting-for-weight-loss-all-you-need-to-know" class="card-title">Intermittent Fasting </a>
+                </h3>
+
+                <p class="card-text">
+                 Weight loss doesn’t mean starving yourself - it is about eating the right foods in the right quantities at the right time. Intermittent fasting for weight loss works to keep your eating hours to specific hours of the day, working on your metabolism and helping reduce weight. 
+                </p>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+<section class="section footer" aria-label="footer" id="footer" data-section>
+    <div class="footer-top section" data-section>
+      <div class="container">
+
+        <div class="footer-list">
+
+          <p class="footer-list-title">Subscribe Newsletter</p>
+
+          <p class="footer-list-text">
+            To recieve more health related tips subscribe to our newsletter.
+          </p>
+<br>
+          <a href="https://forms.gle/shRY1oD8jF3nXcvy8" class="btn btn-secondary">Subscribe Now</a>
+
+            
+         
+
+        </div>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">All BLogs</p>
+          </li>
+
+          <li>
+            <a href="https://www.purdueglobal.edu/blog/student-life/valuable-health-wellness-blogs/" class="footer-link">Health and Wellness</a>
+          </li>
+
+          <li>
+            <a href="https://www.nutritionbylovneet.com/blog/intermittent-fasting-for-weight-loss-all-you-need-to-know" class="footer-link">Intermittent Fasting</a>
+          </li>
+
+          <li>
+            <a href="https://www.spectrumnutrition.ie/blog" class="footer-link">Healthy Eating On A Budget</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Help Links</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Privacy Policy</a>
+          </li>
+
+        
+          <li>
+            <a href="#" class="footer-link">Terms & Conditions</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Customer Support</a>
+          </li>
+
+          
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Opening Hours</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Mon-Fri: 9 AM – 6 PM</a>
+          </li>
+
+          
+          <li>
+            <a href="#" class="footer-link">Saturday and Sunday: Closed</a>
+          </li>
+
+          <li>
+            <p class="footer-list-title address-title">Location</p>
+          </li>
+
+          <li>
+            <address class="address">
+              V.I.T Bhopal University , Kotrikalan Village, Ashta Tehsil, Sehore District<br>
+              Madhya Pradesh, 466114
+            </address>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          &copy; 2023 FitApp Made With
+          <ion-icon name="heart" aria-hidden="true"></ion-icon> by
+          <a href="#" class="copyright-link">ameya ,anshika and swati</a>
+        </p>
+
+        <ul class="footer-bottom-list">
+
+          <li class="footer-bottom-item">
+            <a href="#" class="footer-bottom-link">An apple a day keeps the doctor away.</a>
+          </li>
+
+          
+
+        </ul>
+
+      </div>
+    </div>
+
+  </footer>
+
+
+
+
+
+  <!-- 
+    - #BACK TO TOP
+  -->
+
+  <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+    <ion-icon name="chevron-up" aria-hidden="true"></ion-icon>
+  </a>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="script.js" defer></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+ 
+    
+
+</body>
+
+</html>
